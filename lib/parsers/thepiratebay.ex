@@ -1,6 +1,6 @@
 defmodule Magnetissimo.Parsers.ThePirateBay do
   @behaviour Magnetissimo.Parser
-  use Timex
+  require Timex
 
   def root_urls do
     [
