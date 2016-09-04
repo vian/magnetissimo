@@ -9,4 +9,8 @@ defmodule Magnetissimo.TorrentView do
   def leechers(leechers) do
     leechers || 0
   end
+
+  def uploaded_at(uploaded_at) do
+    uploaded_at || "N/A"
+  end
 end

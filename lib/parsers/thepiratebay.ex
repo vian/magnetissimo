@@ -50,13 +50,19 @@ defmodule Magnetissimo.Parsers.ThePirateBay do
       |> Floki.text
       |> Integer.parse
 
+    uploaded_at = html_body
+      |> Floki.find("#detailsframe #details .col2 dd")
+      |> Enum.at(0)
+      |> Floki.text
+
     %{
       name: name,
       magnet: magnet,
       filesize: size,
       source: "ThePirateBay",
       seeders: seeders,
-      leechers: leechers
+      leechers: leechers,
+      uploaded_at: uploaded_at
     }
   end
 end

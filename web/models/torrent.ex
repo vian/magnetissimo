@@ -12,6 +12,7 @@ defmodule Magnetissimo.Torrent do
     field :seeders, :integer
     field :source, :string
     field :filesize, :string
+    field :uploaded_at, :datetime
 
     timestamps()
   end
@@ -21,7 +22,7 @@ defmodule Magnetissimo.Torrent do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :magnet, :leechers, :seeders, :source, :filesize])
+    |> cast(params, [:name, :magnet, :leechers, :seeders, :source, :filesize, :uploaded_at])
     |> validate_required([:name, :magnet, :source])
     |> unique_constraint(:magnet)
   end
@@ -44,6 +45,11 @@ defmodule Magnetissimo.Torrent do
   def order_by_seeders(query) do
     from p in query,
     order_by: [desc: p.seeders]
+  end
+
+  def order_by_uploaded(query) do
+    from p in query,
+    order_by: [desc: p.uploaded_at]
   end
 
   def save_torrent(torrent) do

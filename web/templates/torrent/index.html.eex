@@ -8,6 +8,7 @@
     <thead>
       <tr>
         <td>Name</td>
+        <td>ULed</td>
         <td class="size-header">Size</td>
         <td>SE</td>
         <td>LE</td>
@@ -19,6 +20,7 @@
       <%= for torrent <- @torrents do %>
         <tr>
           <td><%= torrent.name %></td>
+          <td><%= uploaded_at(torrent.uploaded_at) %></td>
           <td class="meta size"><%= torrent.filesize %></td>
           <td class="meta seeds"><%= seeders(torrent.seeders) %></td>
           <td class="meta leeches"><%= leechers(torrent.leechers) %></td>
