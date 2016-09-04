@@ -1,5 +1,6 @@
 defmodule Magnetissimo.TorrentView do
   use Magnetissimo.Web, :view
+  use Timex
   import Scrivener.HTML
 
   def seeders(seeders) do
