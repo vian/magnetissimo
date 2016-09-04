@@ -1,6 +1,6 @@
 defmodule Magnetissimo.TorrentView do
   use Magnetissimo.Web, :view
-  require Timex
+  require Timex.DateFormat
   use Timex.DateFormat
   import Scrivener.HTML
 
