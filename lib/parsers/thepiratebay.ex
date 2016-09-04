@@ -54,9 +54,7 @@ defmodule Magnetissimo.Parsers.ThePirateBay do
       |> Floki.find("#detailsframe #details .col2 dd")
       |> Enum.at(0)
       |> Floki.text
-      |> String.replace("GMT", "")
       |> String.trim
-      |> Ecto.DateTime.cast
 
     %{
       name: name,

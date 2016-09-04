@@ -68,9 +68,7 @@ defmodule Magnetissimo.Parsers.Isohunt do
     {seeders, _} = Enum.at(attributes, 2) |> String.replace("seeders", "") |> String.trim |> Integer.parse
     uploaded_at = Enum.at(attributes, 3) 
       |> String.replace("Added", "") 
-      |> String.replace("GMT", "")
       |> String.trim
-      |> Ecto.DateTime.cast
 
     %{
       name: name,
