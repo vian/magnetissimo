@@ -66,7 +66,11 @@ defmodule Magnetissimo.Parsers.Isohunt do
     size = Magnetissimo.SizeConverter.size_to_bytes(size_value, unit) |> Kernel.to_string
 
     {seeders, _} = Enum.at(attributes, 2) |> String.replace("seeders", "") |> String.trim |> Integer.parse
-    uploaded_at = Enum.at(attributes, 3) |> String.replace("Added", "") |> String.trim
+    uploaded_at = Enum.at(attributes, 3) 
+      |> String.replace("Added", "") 
+      |> String.replace("GMT", "")
+      |> String.trim
+      |> Ecto.DateTime.cast
 
     %{
       name: name,
