@@ -1,7 +1,6 @@
 defmodule Magnetissimo.TorrentView do
   use Magnetissimo.Web, :view
-  require Timex.DateFormat
-  use Timex.DateFormat
+  import Timex
   import Scrivener.HTML
 
   def seeders(seeders) do
