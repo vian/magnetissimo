@@ -51,7 +51,7 @@ defmodule Magnetissimo.Parsers.ThePirateBay do
       |> Floki.text
       |> Integer.parse
 
-    uploaded_at = html_body
+    {_, uploaded_at} = html_body
       |> Floki.find("#detailsframe #details .col2 dd")
       |> Enum.at(0)
       |> Floki.text
