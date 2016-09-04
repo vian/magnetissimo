@@ -11,6 +11,6 @@ defmodule Magnetissimo.TorrentView do
   end
 
   def uploaded_at(uploaded_at) do
-    uploaded_at || "N/A"
+    (uploaded_at |> DateFormat.format("%Y-%m-%d %H:%M:%S", :strftime)) || "N/A"
   end
 end
