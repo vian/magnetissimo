@@ -44,7 +44,7 @@ defmodule Magnetissimo.Mixfile do
      {:scrivener_ecto, "~> 1.0"},
      {:scrivener_html, "~> 1.1"},
      {:timex, "~> 2.0"},
-     {:timex_ecto, "~> 2.0"},
+     {:timex_ecto, "~> 1.1"},
      {:exq, "~> 0.7.2"},
      {:exq_ui, "~> 0.7.0"},
      {:html_entities, "~> 0.3"}]
