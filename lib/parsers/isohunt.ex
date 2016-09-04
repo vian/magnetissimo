@@ -1,5 +1,6 @@
 defmodule Magnetissimo.Parsers.Isohunt do
   @behaviour Magnetissimo.Parser
+  use Timex
 
   def root_urls do
     [
@@ -66,9 +67,10 @@ defmodule Magnetissimo.Parsers.Isohunt do
     size = Magnetissimo.SizeConverter.size_to_bytes(size_value, unit) |> Kernel.to_string
 
     {seeders, _} = Enum.at(attributes, 2) |> String.replace("seeders", "") |> String.trim |> Integer.parse
-    uploaded_at = Enum.at(attributes, 3) 
+    uploaded_at = ((Enum.at(attributes, 5) 
       |> String.replace("Added", "") 
-      |> String.trim
+      |> String.trim) <> " " <> Enum.at(attributes, 6))
+        |> Timex.parse
 
     %{
       name: name,

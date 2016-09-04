@@ -1,5 +1,6 @@
 defmodule Magnetissimo.Parsers.ThePirateBay do
   @behaviour Magnetissimo.Parser
+  use Timex
 
   def root_urls do
     [
@@ -55,6 +56,7 @@ defmodule Magnetissimo.Parsers.ThePirateBay do
       |> Enum.at(0)
       |> Floki.text
       |> String.trim
+      |> Timex.parse
 
     %{
       name: name,

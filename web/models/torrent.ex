@@ -12,7 +12,7 @@ defmodule Magnetissimo.Torrent do
     field :seeders, :integer
     field :source, :string
     field :filesize, :string
-    field :uploaded_at, :string
+    field :uploaded_at, Timex.Ecto.DateTime
 
     timestamps()
   end
