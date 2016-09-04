@@ -56,7 +56,7 @@ defmodule Magnetissimo.Parsers.ThePirateBay do
       |> Enum.at(0)
       |> Floki.text
       |> String.trim
-      |> Timex.parse
+      |> Timex.parse("%Y-%m-%d %H:%i:%s GMT", :strftime)
 
     %{
       name: name,

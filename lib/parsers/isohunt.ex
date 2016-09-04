@@ -70,7 +70,7 @@ defmodule Magnetissimo.Parsers.Isohunt do
     uploaded_at = ((Enum.at(attributes, 5) 
       |> String.replace("Added", "") 
       |> String.trim) <> " " <> Enum.at(attributes, 6))
-        |> Timex.parse
+        |> Timex.parse("%Y-%m-%d %H:%i:%s", :strftime)
 
     %{
       name: name,
