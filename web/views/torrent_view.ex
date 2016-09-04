@@ -1,6 +1,5 @@
 defmodule Magnetissimo.TorrentView do
   use Magnetissimo.Web, :view
-  import Timex
   import Scrivener.HTML
 
   def seeders(seeders) do
@@ -12,6 +11,10 @@ defmodule Magnetissimo.TorrentView do
   end
 
   def uploaded_at(uploaded_at) do
-    (uploaded_at |> DateFormat.format("%Y-%m-%d %H:%M:%S", :strftime)) || "N/A"
+    if uploaded_at do
+      uploaded_at |> Timex.from_now
+    else
+      "N/A"
+    end
   end
 end
