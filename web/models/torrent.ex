@@ -12,7 +12,7 @@ defmodule Magnetissimo.Torrent do
     field :seeders, :integer
     field :source, :string
     field :filesize, :string
-    field :uploaded_at, Ecto.DateTime?
+    field :uploaded_at, Ecto.DateTime
 
     timestamps()
   end
@@ -47,7 +47,7 @@ defmodule Magnetissimo.Torrent do
     order_by: [desc: p.seeders]
   end
 
-  def order_by_uploaded(query) do
+  def order_by_uploaded_at(query) do
     from p in query,
     order_by: [desc: p.uploaded_at]
   end
